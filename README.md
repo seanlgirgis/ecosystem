@@ -20,15 +20,25 @@ Not just a job search bot. A Personal AI Operating System for a freelance busine
 ## Quick Start
 
 ```powershell
-# 1. Install dependencies
-.\scripts\install.ps1
+# 1. Set up environment (activates venv)
+. .\env_setter.ps1
 
-# 2. Start infrastructure (Qdrant + Ollama)
+# 2. Run tests to verify
+python test_secondbrain.py
+
+# 3. Start infrastructure (Qdrant + Ollama)
 docker-compose up -d
 
-# 3. Start all services
+# 4. Start all services
 .\scripts\start_all.ps1
 ```
+
+### Environment Setup
+
+This project uses the standard `env_setter.ps1` pattern:
+- Virtual environment: `C:\py_venv\ecosystem`
+- Run `. .\env_setter.ps1` before working on the project
+- Flags: `-Install` (create venv), `-Update` (refresh packages), `-Reset` (recreate)
 
 ---
 
