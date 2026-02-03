@@ -1,0 +1,33 @@
+# === DATA & CACHE (NOT in Git) ===
+/data/
+*.pkl
+*.pyc
+__pycache__/
+.pytest_cache/
+
+# === ENVIRONMENT SECRETS ===
+.env
+*.key
+*.pem
+
+# === QDRANT STORAGE ===
+secondbrain/storage/qdrant_data/
+
+# === LOGS ===
+*.log
+logs/
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === TEMP ===
+tmp/
+temp/
+*.tmp
