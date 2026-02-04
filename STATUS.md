@@ -3,7 +3,7 @@
 **Date:** 2026-02-03  
 **Mode:** Job hunt in 30 days  
 **Budget:** $199 AWS credits + $30-40/month  
-**Status:** FOUNDATION READY
+**Status:** JOB SEARCH SKILL WORKING
 
 ---
 
@@ -13,93 +13,113 @@
 | Item | Status |
 |------|--------|
 | Profile "study" | ✅ Authenticated |
-| Region us-east-1 | ✅ Active |
 | Kimi K2.5 | ✅ Tested & responding |
 | Cost per query | ~$0.00007 (7 hundredths of a cent) |
-| Credits remaining | $199 (~2.8 million queries) |
+| Credits remaining | $199 |
+
+### Job Search Skill (NEW - WORKING)
+| Feature | Status |
+|---------|--------|
+| Job description analysis | ✅ AWS Bedrock + Kimi |
+| Match scoring | ✅ vs your skills profile |
+| Skill extraction | ✅ Python, PySpark, AWS, etc. |
+| Salary detection | ✅ Extracts from JD |
+| Recommendations | ✅ Apply/Consider/Skip |
+| Storage | ✅ SecondBrain |
 
 ### SecondBrain (MEMORY)
-| Item | Status |
-|------|--------|
+| Feature | Status |
+|---------|--------|
 | remember() / recall() | ✅ Working |
-| cache_store() / cache_get() | ✅ Working |
-| Local storage | ✅ C:\ecosystem\data\ |
-| Tests passing | ✅ 100% |
-
-### Infrastructure
-| Item | Status |
-|------|--------|
-| Git repo | ✅ github.com/seanlgirgis/ecosystem |
-| Python 3.12 | ✅ Working |
-| Virtual env | ✅ C:\py_venv\clawbot |
-| Environment script | ✅ .\env_setter.ps1 |
+| Your skills profile | ✅ Stored |
+| Job search rules | ✅ Stored |
+| Job sites hierarchy | ✅ Stored |
+| Portfolio repo | ✅ Documented |
 
 ---
 
-## 🚧 Next 24 Hours (URGENT SPRINT)
+## 🚀 USE IT NOW
 
-### Hour 1-4: Job Search Skill (MVP)
-- [ ] Scrape LinkedIn for Data Engineer jobs
-- [ ] Scrape Indeed for Python jobs
-- [ ] Store raw listings in SecondBrain
-
-### Hour 5-8: Analysis
-- [ ] Use Bedrock/Kimi to analyze job descriptions
-- [ ] Extract: required skills, salary range, red flags
-- [ ] Calculate match score vs your skills
-
-### Hour 9-16: Resume Tailoring
-- [ ] Upload your resume(s)
-- [ ] Generate tailored version per job
-- [ ] Create cover letters
-
-### Hour 17-24: Application Pipeline
-- [ ] Track applications (company, role, date, resume used)
-- [ ] Set follow-up reminders (7 days, 14 days)
-- [ ] Generate daily report: applied, pending, follow-ups
-
----
-
-## 📊 Cost Projection
-
-| Phase | Queries | Cost |
-|-------|---------|------|
-| Testing (done) | 3 | $0.0002 |
-| Day 1-7 setup | 1,000 | ~$1.50 |
-| Week 1 job hunt | 5,000 | ~$7.50 |
-| Month 1 intensive | 20,000 | ~$30 |
-| **Remaining credits** | | **~$169** |
-
----
-
-## 🚀 Quick Commands
+### Analyze Any Job (Command Line)
 
 ```powershell
-# Activate environment
 cd C:\ecosystem
-. .\env_setter.ps1
 
-# Test Bedrock
-python scripts\test_bedrock.py
+# Quick analysis
+python analyze_job.py "paste job description here"
 
-# Check AWS credits
-aws ce get-cost-and-usage --time-period Start=2026-02-01,End=2026-02-28 --granularity MONTHLY --metrics BlendedCost --profile study
+# Or interactive
+python analyze_job.py
+# Then paste description and press Enter twice
+```
+
+**Example output:**
+```
+[SCORE] MATCH: 91%
+[SKILLS] Python, PySpark, AWS
+[SALARY] $160K-$190K
+[WORK] remote
+[ANALYSIS] Perfect technical match...
+[APPLY NOW] High match - apply immediately
 ```
 
 ---
 
-## 🎯 Success Metrics (30 Days)
+## 📋 Daily Workflow (Starting NOW)
 
-- [ ] 50+ jobs analyzed
-- [ ] 20+ tailored resumes generated
-- [ ] 10+ applications submitted
-- [ ] 3+ interviews scheduled
-- [ ] 1+ job offer
+### Morning (30 minutes)
+1. Search LinkedIn/Indeed for "Data Engineer Remote"
+2. For each job, run: `python analyze_job.py "paste JD"`
+3. Apply to 75%+ matches immediately
+
+### Afternoon (30 minutes)
+1. Tailor resume for high-match jobs (using portfolio repo)
+2. Submit applications
+3. Track in SecondBrain: `remember(key='applied_company', value={...})`
+
+### Evening (15 minutes)
+1. Send follow-ups on pending applications
+2. Review tomorrow's targets
 
 ---
 
-## ⚡ Blockers (NONE)
+## 🎯 Next Features (Build as Needed)
 
-Foundation is solid. AWS Bedrock works. SecondBrain works.
+| Priority | Feature | Est. Time |
+|----------|---------|-----------|
+| P0 | Resume tailor per job | 4 hours |
+| P1 | LinkedIn scraper (auto) | 8 hours |
+| P1 | Application tracker | 2 hours |
+| P2 | Follow-up reminders | 2 hours |
+| P2 | Cover letter generator | 4 hours |
 
-**Ready to build job search skill?**
+---
+
+## 💰 Cost So Far
+
+| Activity | Cost |
+|----------|------|
+| Testing | $0.0003 |
+| Est. 100 jobs/day | $0.007 |
+| Est. month intensive | $0.21 |
+
+**Essentially FREE with your credits.**
+
+---
+
+## 🎉 You Have NOW
+
+1. ✅ **AI that analyzes jobs** — Paste JD, get match score
+2. ✅ **Your skills profile** — Stored and searchable
+3. ✅ **AWS Bedrock** — $199 credits, working
+4. ✅ **Portfolio repo** — Ready for resume tailoring
+
+---
+
+## Next Decision
+
+**Option A:** Build resume tailor (analyze job → generate tailored resume)  
+**Option B:** Build LinkedIn scraper (automated job discovery)  
+**Option C:** Build application tracker (track applied, pending, offers)
+
+**Which one gets you a job fastest?**
