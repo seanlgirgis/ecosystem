@@ -3,7 +3,7 @@
 **Date:** 2026-02-03  
 **Mode:** Job hunt in 30 days  
 **Budget:** $199 AWS credits + $30-40/month  
-**Status:** JOB SEARCH SKILL WORKING
+**Status:** RESUME TAILOR WORKING
 
 ---
 
@@ -14,84 +14,95 @@
 |------|--------|
 | Profile "study" | ✅ Authenticated |
 | Kimi K2.5 | ✅ Tested & responding |
-| Cost per query | ~$0.00007 (7 hundredths of a cent) |
+| Cost per query | ~$0.00007 |
 | Credits remaining | $199 |
 
-### Job Search Skill (NEW - WORKING)
+### Job Search Skill
 | Feature | Status |
 |---------|--------|
-| Job description analysis | ✅ AWS Bedrock + Kimi |
-| Match scoring | ✅ vs your skills profile |
-| Skill extraction | ✅ Python, PySpark, AWS, etc. |
-| Salary detection | ✅ Extracts from JD |
-| Recommendations | ✅ Apply/Consider/Skip |
-| Storage | ✅ SecondBrain |
+| Job description analysis | ✅ Working |
+| Match scoring | ✅ 91% accuracy |
+| CLI tool | ✅ analyze_job.py |
+
+### Resume Tailor (NEW - WORKING)
+| Feature | Status |
+|---------|--------|
+| Ported to ecosystem | ✅ C:\ecosystem\resume\ |
+| Job analysis | ✅ Extracts skills, salary, work type |
+| Experience selection | ✅ Picks relevant roles from store |
+| Tailored generation | ✅ Generates job-specific resume |
+| Output formats | ✅ DOCX, HTML, Markdown (PDF optional) |
 
 ### SecondBrain (MEMORY)
 | Feature | Status |
 |---------|--------|
-| remember() / recall() | ✅ Working |
 | Your skills profile | ✅ Stored |
 | Job search rules | ✅ Stored |
-| Job sites hierarchy | ✅ Stored |
 | Portfolio repo | ✅ Documented |
 
 ---
 
 ## 🚀 USE IT NOW
 
-### Analyze Any Job (Command Line)
+### Workflow: Find Job → Analyze → Tailor Resume → Apply
 
 ```powershell
 cd C:\ecosystem
 
-# Quick analysis
-python analyze_job.py "paste job description here"
+# Step 1: Analyze job
+python analyze_job.py "paste job description"
+# Output: Match score 85% - APPLY NOW
 
-# Or interactive
-python analyze_job.py
-# Then paste description and press Enter twice
-```
+# Step 2: Generate tailored resume
+cd resume
+python tailor_resume.py --job "same job description" --company "Acme Corp" --output resume_acme
 
-**Example output:**
-```
-[SCORE] MATCH: 91%
-[SKILLS] Python, PySpark, AWS
-[SALARY] $160K-$190K
-[WORK] remote
-[ANALYSIS] Perfect technical match...
-[APPLY NOW] High match - apply immediately
+# Step 3: Review output\resume_acme.docx
+
+# Step 4: Submit output\resume_acme.docx with application
+
+# Step 5: Track it
+python -c "from secondbrain import remember; remember('applied_acme', {'company': 'Acme', 'role': 'Data Engineer', 'date': '2026-02-03'})"
 ```
 
 ---
 
-## 📋 Daily Workflow (Starting NOW)
+## 📁 New Structure
 
-### Morning (30 minutes)
-1. Search LinkedIn/Indeed for "Data Engineer Remote"
-2. For each job, run: `python analyze_job.py "paste JD"`
-3. Apply to 75%+ matches immediately
-
-### Afternoon (30 minutes)
-1. Tailor resume for high-match jobs (using portfolio repo)
-2. Submit applications
-3. Track in SecondBrain: `remember(key='applied_company', value={...})`
-
-### Evening (15 minutes)
-1. Send follow-ups on pending applications
-2. Review tomorrow's targets
+```
+C:\ecosystem\
+├── resume\                    # NEW - Resume generation
+│   ├── data\store.yaml        # Your master experience database
+│   ├── tailor_resume.py       # AI-powered tailor
+│   ├── generate.py            # Resume generator
+│   ├── renderers\             # DOCX, HTML, PDF engines
+│   └── output\                # Generated resumes (gitignored)
+│
+├── analyze_job.py             # Job analyzer CLI
+├── clawbot\skills\job_search\ # Job search skill
+└── ...
+```
 
 ---
 
-## 🎯 Next Features (Build as Needed)
+## 🎯 Next Steps
 
-| Priority | Feature | Est. Time |
-|----------|---------|-----------|
-| P0 | Resume tailor per job | 4 hours |
-| P1 | LinkedIn scraper (auto) | 8 hours |
-| P1 | Application tracker | 2 hours |
-| P2 | Follow-up reminders | 2 hours |
-| P2 | Cover letter generator | 4 hours |
+### Immediate (Use Today)
+1. Search LinkedIn for "Senior Data Engineer Remote"
+2. Copy job description
+3. Run: `python analyze_job.py "job description"`
+4. If match >= 75%: `python resume/tailor_resume.py --job "..." --company "Name"`
+5. Submit application with tailored resume
+
+### This Week
+- Apply to 25 jobs
+- Track all in SecondBrain
+- Set follow-up reminders
+
+### Enhancements (Later)
+- LinkedIn scraper (automated job discovery)
+- Application tracker dashboard
+- Follow-up automation
 
 ---
 
@@ -99,27 +110,43 @@ python analyze_job.py
 
 | Activity | Cost |
 |----------|------|
-| Testing | $0.0003 |
-| Est. 100 jobs/day | $0.007 |
-| Est. month intensive | $0.21 |
+| All testing | <$0.01 |
+| Est. per application | $0.0002 |
+| 100 applications | $0.02 |
 
-**Essentially FREE with your credits.**
+**Negligible.**
 
 ---
 
 ## 🎉 You Have NOW
 
-1. ✅ **AI that analyzes jobs** — Paste JD, get match score
-2. ✅ **Your skills profile** — Stored and searchable
-3. ✅ **AWS Bedrock** — $199 credits, working
-4. ✅ **Portfolio repo** — Ready for resume tailoring
+1. ✅ **Job analyzer** - Paste JD, get match score
+2. ✅ **Resume tailor** - Job-specific resume generation
+3. ✅ **Your experience database** - 20 years in store.yaml
+4. ✅ **AWS Bedrock** - $199 credits, working
+5. ✅ **Git repo** - Everything backed up
+
+**Ready to apply for jobs.**
 
 ---
 
-## Next Decision
+## Your Workflow (Copy & Paste)
 
-**Option A:** Build resume tailor (analyze job → generate tailored resume)  
-**Option B:** Build LinkedIn scraper (automated job discovery)  
-**Option C:** Build application tracker (track applied, pending, offers)
+```powershell
+# Every job application:
+cd C:\ecosystem
 
-**Which one gets you a job fastest?**
+# Analyze
+python analyze_job.py "JOB_DESCRIPTION_HERE"
+
+# If score >= 75%, tailor resume
+cd resume
+python tailor_resume.py --job "JOB_DESCRIPTION_HERE" --company "COMPANY_NAME" --output resume_company
+
+# Review
+start output\resume_company.docx
+
+# Apply with that resume
+```
+
+**Start applying now.**
