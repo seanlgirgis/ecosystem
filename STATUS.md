@@ -3,150 +3,171 @@
 **Date:** 2026-02-03  
 **Mode:** Job hunt in 30 days  
 **Budget:** $199 AWS credits + $30-40/month  
-**Status:** RESUME TAILOR WORKING
+**Status:** ALL CORE TOOLS WORKING
 
 ---
 
-## ✅ What's Working NOW
+## ✅ Complete Toolset (WORKING)
 
-### AWS Bedrock (PRIMARY LLM)
-| Item | Status |
-|------|--------|
-| Profile "study" | ✅ Authenticated |
-| Kimi K2.5 | ✅ Tested & responding |
-| Cost per query | ~$0.00007 |
-| Credits remaining | $199 |
-
-### Job Search Skill
-| Feature | Status |
-|---------|--------|
-| Job description analysis | ✅ Working |
-| Match scoring | ✅ 91% accuracy |
-| CLI tool | ✅ analyze_job.py |
-
-### Resume Tailor (NEW - WORKING)
-| Feature | Status |
-|---------|--------|
-| Ported to ecosystem | ✅ C:\ecosystem\resume\ |
-| Job analysis | ✅ Extracts skills, salary, work type |
-| Experience selection | ✅ Picks relevant roles from store |
-| Tailored generation | ✅ Generates job-specific resume |
-| Output formats | ✅ DOCX, HTML, Markdown (PDF optional) |
-
-### SecondBrain (MEMORY)
-| Feature | Status |
-|---------|--------|
-| Your skills profile | ✅ Stored |
-| Job search rules | ✅ Stored |
-| Portfolio repo | ✅ Documented |
-
----
-
-## 🚀 USE IT NOW
-
-### Workflow: Find Job → Analyze → Tailor Resume → Apply
+### 1. Job Analyzer
+**File:** `analyze_job.py`
 
 ```powershell
-cd C:\ecosystem
-
-# Step 1: Analyze job
-python analyze_job.py "paste job description"
-# Output: Match score 85% - APPLY NOW
-
-# Step 2: Generate tailored resume
-cd resume
-python tailor_resume.py --job "same job description" --company "Acme Corp" --output resume_acme
-
-# Step 3: Review output\resume_acme.docx
-
-# Step 4: Submit output\resume_acme.docx with application
-
-# Step 5: Track it
-python -c "from secondbrain import remember; remember('applied_acme', {'company': 'Acme', 'role': 'Data Engineer', 'date': '2026-02-03'})"
+python analyze_job.py "job description"
 ```
+
+**Output:** Match score, skills, salary, recommendation (Apply/Skip)
+
+**Cost:** $0.00007 per analysis
 
 ---
 
-## 📁 New Structure
+### 2. Resume Tailor
+**File:** `resume/tailor_resume.py`
+
+```powershell
+cd resume
+python tailor_resume.py --job "description" --company "Name"
+```
+
+**Output:** Tailored resume (DOCX, HTML, MD) highlighting relevant experience
+
+**Cost:** $0.0001 per resume
+
+---
+
+### 3. Application Tracker (NEW!)
+**File:** `track_application.py`
+
+```powershell
+# Add application
+python track_application.py add --company "Acme" --role "Data Engineer"
+
+# Update status
+python track_application.py update <id> --status interview
+
+# List all
+python track_application.py list
+
+# View details
+python track_application.py view <id>
+```
+
+**Features:**
+- ✅ Track all applications
+- ✅ Automatic follow-up reminders (7, 14, 21, 30 days)
+- ✅ Status pipeline (applied → phone screen → interview → offer)
+- ✅ Notes and contact info
+- ✅ Match score tracking
+
+---
+
+## 🚀 Your Daily Workflow
+
+### Morning (30 min)
+1. Search LinkedIn/Indeed for jobs
+2. For each job: `python analyze_job.py "JD"`
+3. If match >= 75%: Generate tailored resume
+
+### Afternoon (30 min)
+1. Submit applications
+2. Track each: `python track_application.py add ...`
+3. Send follow-ups (check `track_application.py follow-ups`)
+
+### Targets
+- **Daily:** 2-3 applications
+- **Weekly:** 10-15 applications, 5 follow-ups
+- **Goal:** Job offer in 30 days
+
+---
+
+## 📁 File Structure
 
 ```
 C:\ecosystem\
-├── resume\                    # NEW - Resume generation
-│   ├── data\store.yaml        # Your master experience database
-│   ├── tailor_resume.py       # AI-powered tailor
-│   ├── generate.py            # Resume generator
-│   ├── renderers\             # DOCX, HTML, PDF engines
-│   └── output\                # Generated resumes (gitignored)
+├── analyze_job.py              # Job analysis CLI
+├── track_application.py        # Application tracker CLI
+├── JOB_HUNT_WORKFLOW.md        # Complete workflow guide
 │
-├── analyze_job.py             # Job analyzer CLI
-├── clawbot\skills\job_search\ # Job search skill
-└── ...
+├── resume\
+│   ├── tailor_resume.py        # Resume generator
+│   ├── generate.py             # Core generator
+│   ├── data\store.yaml         # Your experience database
+│   └── output\                 # Generated resumes
+│
+├── clawbot\skills\job_search\
+│   ├── job_scraper.py          # Job analysis logic
+│   ├── application_tracker.py  # Tracking logic
+│   └── __init__.py
+│
+└── secondbrain\               # Your memory storage
 ```
 
 ---
 
-## 🎯 Next Steps
-
-### Immediate (Use Today)
-1. Search LinkedIn for "Senior Data Engineer Remote"
-2. Copy job description
-3. Run: `python analyze_job.py "job description"`
-4. If match >= 75%: `python resume/tailor_resume.py --job "..." --company "Name"`
-5. Submit application with tailored resume
-
-### This Week
-- Apply to 25 jobs
-- Track all in SecondBrain
-- Set follow-up reminders
-
-### Enhancements (Later)
-- LinkedIn scraper (automated job discovery)
-- Application tracker dashboard
-- Follow-up automation
-
----
-
-## 💰 Cost So Far
+## 💰 Cost Breakdown
 
 | Activity | Cost |
 |----------|------|
-| All testing | <$0.01 |
-| Est. per application | $0.0002 |
+| Job analysis | $0.00007 |
+| Resume tailoring | $0.0001 |
+| Application tracking | $0 |
+| **Per complete application** | **~$0.0002** |
 | 100 applications | $0.02 |
+| 1000 applications | $0.20 |
 
-**Negligible.**
-
----
-
-## 🎉 You Have NOW
-
-1. ✅ **Job analyzer** - Paste JD, get match score
-2. ✅ **Resume tailor** - Job-specific resume generation
-3. ✅ **Your experience database** - 20 years in store.yaml
-4. ✅ **AWS Bedrock** - $199 credits, working
-5. ✅ **Git repo** - Everything backed up
-
-**Ready to apply for jobs.**
+**Your $199 credits = 1,000,000+ applications**
 
 ---
 
-## Your Workflow (Copy & Paste)
+## 🎯 Success Metrics
 
-```powershell
-# Every job application:
-cd C:\ecosystem
+### Week 1 Goals
+- [ ] 10 applications tracked
+- [ ] 5 high-match (>=75%)
+- [ ] 3 follow-ups sent
 
-# Analyze
-python analyze_job.py "JOB_DESCRIPTION_HERE"
+### Week 2 Goals
+- [ ] 20 total applications
+- [ ] 1 phone screen
+- [ ] All resumes tailored
 
-# If score >= 75%, tailor resume
-cd resume
-python tailor_resume.py --job "JOB_DESCRIPTION_HERE" --company "COMPANY_NAME" --output resume_company
+### Week 3 Goals
+- [ ] 30 total applications
+- [ ] 3 phone screens
+- [ ] 1 technical interview
 
-# Review
-start output\resume_company.docx
+### Week 4 Goals
+- [ ] 40 total applications
+- [ ] 5 phone screens
+- [ ] 2 technical interviews
+- [ ] **1 OFFER** 🎉
 
-# Apply with that resume
-```
+---
 
-**Start applying now.**
+## 🎉 You Have COMPLETE System
+
+| Component | Status |
+|-----------|--------|
+| Job analyzer | ✅ Working |
+| Resume tailor | ✅ Working |
+| Application tracker | ✅ Working |
+| AWS Bedrock | ✅ $199 credits |
+| Experience database | ✅ 20 years stored |
+| Workflow guide | ✅ Complete |
+
+**Everything you need to get a job.**
+
+---
+
+## Next Actions
+
+1. **Read:** `JOB_HUNT_WORKFLOW.md`
+2. **Test:** Run `python analyze_job.py` with a real job
+3. **Generate:** Run `resume/tailor_resume.py` for that job
+4. **Track:** Run `track_application.py add` after applying
+5. **Apply:** Submit your first application TODAY
+
+---
+
+**You're ready. Go get that job.**
