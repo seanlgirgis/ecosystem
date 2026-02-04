@@ -4,6 +4,7 @@
 # === Core ===
 requests>=2.31.0
 python-dotenv>=1.0.0
+pyyaml>=6.0.0
 
 # === SecondBrain ===
 qdrant-client>=1.7.0
@@ -12,8 +13,16 @@ numpy>=1.26.0
 # === Data Models ===
 pydantic>=2.0.0
 
-# === ClawBot (Phase 2+) ===
+# === ClawBot ===
 python-telegram-bot>=20.0
+
+# === Resume Generation ===
+python-docx>=0.8.11
+jinja2>=3.1.0
+pdfkit>=1.0.0
+
+# === AWS ===
+boto3>=1.28.0
 
 # === Testing ===
 pytest>=7.4.0

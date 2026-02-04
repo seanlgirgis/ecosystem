@@ -1,0 +1,12 @@
+# Resume output files (generated)
+output/*.docx
+output/*.pdf
+output/*.html
+output/*.md
+
+# Tailored layouts (generated per job)
+data/resume_tailored_*.yaml
+
+# Python cache
+__pycache__/
+*.pyc
